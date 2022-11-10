@@ -1,9 +1,30 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="v">
     <ion-title>login</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
+  <ion-item fill="solid">
+    <ion-label position="floating">Email</ion-label>
+    <ion-input type="email" ngModel email></ion-input>
+    <ion-note slot="helper">Entre com um email válido</ion-note>
+    <ion-note slot="error">Email inválido</ion-note>
+  </ion-item>
+
+
+<ion-item fill="solid">
+  <ion-label position="floating">Senha</ion-label>
+  <ion-input type="email" ngModel email></ion-input>
+  <ion-note slot="helper">Entre com uma senha válida</ion-note>
+  <ion-note slot="error">Senha inválida</ion-note>
+</ion-item>
+
+<ion-button class="aa" color="new">Registrar</ion-button>
+<ion-button shape="round" class="ac" color="new" >Entrar</ion-button>
+<ion-button fill="clear" class="ab" color="new" >Esqueci minha senha</ion-button>
+
+
 
 </ion-content>
