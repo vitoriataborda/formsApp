@@ -5,28 +5,29 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="grupo">
+  <form [formGroup]="formRegistro">
     <ion-item>
-      <ion-label position="stacked">Nome do Produto:</ion-label>
-       <ion-input formControlName="nomeProduto"></ion-input>
-       </ion-item>
+      <ion-label position="stacked">Nome:</ion-label>
+      <ion-input formControlName="nome"></ion-input>
+    </ion-item>
 
-       <ion-item>
-          <ion-label position="stacked">Quantidade:</ion-label>
-           <ion-input formControlName="quantidade"></ion-input>
-           </ion-item>
-            <ion-item>
-              <ion-label position="stacked">Preço:</ion-label>
-              <ion-input formControlName="preco"></ion-input>
-            </ion-item>
-             <ion-item>
-               <ion-label position="stacked">ID do Produto:</ion-label>
-                <ion-input formControlName="id"></ion-input>
-              </ion-item>
-              <ion-button expand="block" color="success" (click)="salvar()">Salvar</ion-button>
-    </form>
-    </ion-content>
+    <ion-item>
+      <ion-label position="stacked">Cpf:</ion-label>
+      <ion-input formControlName="cpf"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Email:</ion-label>
+      <ion-input formControlName="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Senha:</ion-label>
+      <ion-input type="password" formControlName="senha"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Confirma Senha:</ion-label>
+      <ion-input type="password" formControlName="confirmaSenha"></ion-input>
+    </ion-item>
+    <ion-button expand="block" color="success" (click)="salvarRegistro()">SALVAR</ion-button>
 
-
-
+  </form>
 </ion-content>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-mport { FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Produtos } from '../models/Produtos';
-import { StorageService } from '../services/storage.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+
+
+
 
 @Component({
   selector: 'app-registro',
@@ -11,26 +11,27 @@ import { StorageService } from '../services/storage.service';
 })
 export class RegistroPage implements OnInit {
 
-  grupo: FormGroup;
-  produtos: Produtos = new Produtos();
+  formRegistro: FormGroup;
 
-  constructor(public storage:StorageService, public router: Router, private storageService: StorageService, private formBuilder: FormBuilder) {}
+
+
+  constructor(private formBuilder: FormBuilder ) {
+    this.formRegistro = this.formBuilder.group({
+      nome: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
+      cpf: ['', Validators.compose([Validators.required])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      senha: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])],
+      confirmaSenha: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])]
+    });
+
+  }
    ngOnInit() {
-     this.grupo = this.formBuilder.group({ nomeProduto: [''],
-     quantidade: [''],
-     preco: [''],
-      id: ['']
-     })
-     }
 
-     async salvar() {
-        this.produtos.nomeProduto = this.grupo.value.nomeProduto;
-         this.produtos.quantidade = this.grupo.value.quantidade;
-         this.produtos.preco = this.grupo.value.preco;
-          this.produtos.id = this.grupo.value.id;
+  }
 
-          await this.storageService.set(this.produtos.id, this.produtos);
-     this.router.navigateByUrl('/home');
+  salvarRegistro(){
+    console.log('Formulario: ', this.formRegistro.valid);
+
   }
 
 }
