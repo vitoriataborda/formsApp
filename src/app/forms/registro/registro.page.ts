@@ -15,6 +15,8 @@ export class RegistroPage implements OnInit {
 
 
 
+
+
   constructor(private formBuilder: FormBuilder ) {
     this.formRegistro = this.formBuilder.group({
       nome: ['', Validators.compose([Validators.required, Validators.minLength(3)])],
@@ -31,7 +33,5 @@ export class RegistroPage implements OnInit {
 
   salvarRegistro(){
     console.log('Formulario: ', this.formRegistro.valid);
-
   }
-
 }

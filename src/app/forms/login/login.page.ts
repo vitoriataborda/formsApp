@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormBuilder, Validators} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +17,8 @@ export class LoginPage implements OnInit {
       senha: ['', Validators.compose([Validators.required, Validators.minLength(6), Validators.maxLength(8)])],
    });
 
+  }
+
   ngOnInit() {
 
   }
@@ -24,4 +26,5 @@ export class LoginPage implements OnInit {
   salvarLogin(){
     console.log('Formulario: ', this.formLogin.valid);
 
-};
+}
+}
